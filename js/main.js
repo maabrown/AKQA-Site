@@ -14,12 +14,30 @@ function AppViewModel() {
 
   self.products = ko.observableArray([]);
 
+  var sizeFilters = [];
+
   $.get('./data/products.json', function(allData) {
+
     var mappedProducts = $.map(allData, function(product) {
+
+      createFilter(product.size, sizeFilters);
       return new ProductModel(product);
     })
     self.products(mappedProducts);
+    console.log(sizeFilters);
   })
 }
 
 ko.applyBindings(new AppViewModel());
+var filters = [];
+
+function createFilter(productFilter, filters) {
+  var productFilterLength = productFilter.length;
+  var counter = 0;
+  productFilter.forEach(function(filterOption) {
+    if( $.inArray(filterOption, filters) == -1) {
+      filters.push(filterOption)
+    };
+    counter++;
+  })
+}
