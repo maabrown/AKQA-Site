@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/styles/styles.min.css">
   </head>
-  
+
   <body>
 
     <div class="header">
@@ -18,7 +18,7 @@
     <div data-bind="foreach: filteredItems" class="productPanel">
       <div class="productPanel__productItem">
         <img data-bind="attr: { src: productImage, alt: productName}" class="productPanel__productItem__image">
-        <div data-bind="style: { display: isExclusive ? 'block' : 'none'}" class="productPanel__productItem__button productPanel--productItem__button--exclusive">
+        <div data-bind="style: { display: isExclusive ? 'block' : 'none'}" class="productPanel__productItem__button productPanel__productItem__button--exclusive">
           <p class="productPanel__productItem__button--exclusive__text">Exclusive</p>
         </div>
         <div data-bind="style: { display: onSale ? 'block' : 'none'}" class="productPanel__productItem__button productPanel__productItem__button--sale">
