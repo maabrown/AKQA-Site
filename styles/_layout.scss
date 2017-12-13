@@ -1,0 +1,7 @@
+table {
+  background-color: red;
+
+  @include breakpoint(sm) {
+    color: blue;
+  }
+}
