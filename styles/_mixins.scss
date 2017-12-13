@@ -2,28 +2,28 @@
   //mobile
   @if $point == sm {
     @media (max-width: 767px) {
-      @content;
+      @content ;
     }
   }
 
   // tablet
   @else if $point == md {
     @media (min-width: 768px) and (max-width: 1200px) {
-      @content;
+      @content ;
     }
   }
 
   // tablet
   @else if $point == smmd {
     @media (max-width: 1200px) {
-      @content;
+      @content ;
     }
   }
 
   // desktop
   @else if $point == lg {
     @media (min-width: 1201px) {
-      @content;
+      @content ;
     }
   }
 }

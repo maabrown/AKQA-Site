@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Mark Brown II Submission</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/styles/styles.min.css">
+
   </head>
   <body>
 
@@ -12,20 +15,22 @@
       <select class="header--selectMenu"data-bind="options: filters, value: filter"></select>
     </div>
 
+    <div data-bind="foreach: filteredItems" class="productPanel">
+      <div class="productPanel--productItem">
+        <img data-bind="attr: { src: productImage, alt: productName}" class="productPanel--productItem--image">
+        <div data-bind="style: { display: isExclusive ? 'block' : 'none'}" class="productPanel--productItem--button productPanel--productItem--button__exclusive">
+          <p class="productPanel--productItem--button__exclusive--text">Exclusive</p>
+        </div>
+        <div data-bind="style: { display: onSale ? 'block' : 'none'}" class="productPanel--productItem--button productPanel--productItem--button__sale">
+          <p class="productPanel--productItem--button__sale--text">Sale</p>
+        </div>
+        <div data-bind="style: { display: onSale || isExclusive ? 'none' : 'block'}" class="productPanel--productItem--button productPanel--productItem--button__placeholder">
 
-    <ul data-bind="foreach: filteredItems">
-      <li>
-        <h1 data-bind="text: productName"></h1>
-        <h1 data-bind="text: price"></h1>
-        <img data-bind="attr: { src: productImage, alt: productName}">
-        <div data-bind="visible: isExclusive" class="">
-          <p>Exclusive</p>
         </div>
-        <div data-bind="visible: onSale" class="">
-          <p>Sale</p>
-        </div>
-      </li>
-    </ul>
+        <h3 data-bind="text: productName" class="productPanel--productItem--productName"></h3>
+        <h3 data-bind="text: price" class="productPanel--productItem--productPrice"></h3>
+      </div>
+    </div>
 
     <script
   src="https://code.jquery.com/jquery-3.2.1.js"
