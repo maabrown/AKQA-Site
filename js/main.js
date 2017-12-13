@@ -1,4 +1,4 @@
-// creation of Product Product
+// creation of Product model
 function ProductModel(data) {
   var self = this;
   self.productName = data.productName;
@@ -9,7 +9,7 @@ function ProductModel(data) {
   self.productImage = './images/Products/' + data.productImage;
 }
 
-// creation of view model
+// creation of View model
 function AppViewModel() {
   var self = this;
 
@@ -25,7 +25,7 @@ function AppViewModel() {
     }
     else {
       return ko.utils.arrayFilter(self.products(), function(product) {
-        if( $.inArray(filter, product.size) > -1) {
+        if (product['size'].includes(filter)) {
           return true;
         }
       })
@@ -34,19 +34,33 @@ function AppViewModel() {
 
   var sizeFilters = [];
 
-  $.get('./data/products.json', function(allData) {
+  function httpGetAsync(theUrl, callback) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+              var response = JSON.parse(xmlHttp.responseText)
+              callback(response);
+      }
+      xmlHttp.open("GET", theUrl, true); // true for asynchronous
+      xmlHttp.send(null);
+  }
 
-    var mappedProducts = $.map(allData, function(product) {
+  function createFilters(data) {
+    // checks response is an object to make sure to run the function when the response has actually been returned
+    if (typeof data == 'object') {
+      var mappedProducts = data.map(function(product) {
+        createFilter(product.size, sizeFilters);
+        return new ProductModel(product);
+      })
+      self.products(mappedProducts);
+      // adds the 'Filter by Size' and 'None' values since they wouldn't be listed in any product.size array
+      sizeFilters.unshift("Filter By Size")
+      sizeFilters.push("None");
+      self.filters(sizeFilters);
+    }
+  }
 
-      createFilter(product.size, sizeFilters);
-      return new ProductModel(product);
-    })
-    self.products(mappedProducts);
-    // adds the Filter by Size and None values since they wouldn't be listed in any shirt
-    sizeFilters.unshift("Filter By Size")
-    sizeFilters.push("None");
-    self.filters(sizeFilters);
-  })
+  httpGetAsync('./data/products.json', createFilters)
 }
 
 ko.applyBindings(new AppViewModel());
@@ -54,11 +68,9 @@ ko.applyBindings(new AppViewModel());
 // creates unique values for select menu
 function createFilter(productFilter, filters) {
   var productFilterLength = productFilter.length;
-  var counter = 0;
   productFilter.forEach(function(filterOption) {
-    if( $.inArray(filterOption, filters) == -1) {
-      filters.push(filterOption)
-    };
-    counter++;
+    if (!filters.includes(filterOption)) {
+      filters.push(filterOption);
+    }
   })
 }
