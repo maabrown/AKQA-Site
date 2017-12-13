@@ -6,6 +6,13 @@
   </head>
   <body>
 
+    <ul data-bind="foreach: products">
+      <li>
+        <h1 data-bind="text: productName"></h1>
+        <h1 data-bind="text: price"></h1>
+      </li>
+    </ul>
+
     <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="

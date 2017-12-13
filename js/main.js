@@ -14,7 +14,7 @@ function AppViewModel() {
 
   self.products = ko.observableArray([]);
 
-  $.get('./data.products.json', function(allData) {
+  $.get('./data/products.json', function(allData) {
     var mappedProducts = $.map(allData, function(product) {
       return new ProductModel(product);
     })
