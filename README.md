@@ -31,4 +31,4 @@ You can stop the app by Pressing CTRL+C
 
 Thank you for your time and taking a look!
 
-[![N|Solid](https://media.tenor.com/images/09977f8a82cb11a1fb2d1918ecce059b/tenor.gif)]
+![N|Solid](https://media.tenor.com/images/09977f8a82cb11a1fb2d1918ecce059b/tenor.gif)
