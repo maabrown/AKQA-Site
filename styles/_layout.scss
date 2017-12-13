@@ -1,7 +1,21 @@
-table {
-  background-color: red;
+body {
+  width: 80%;
+  margin: auto;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 
-  @include breakpoint(sm) {
-    color: blue;
+  .header {
+    background-color: #dff1f4;
+    position: relative;
+
+    &--title {
+      display: inline-block;
+      margin-left: 2rem;
+    }
+
+    &--selectMenu {
+      position: absolute;
+      right: 2rem;
+      top: 39%;
+    }
   }
 }

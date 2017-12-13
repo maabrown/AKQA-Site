@@ -3,10 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Mark Brown II Submission</title>
+    <link rel="stylesheet" href="/styles/styles.min.css">
   </head>
   <body>
-    <select data-bind="options: filters, value: filter"></select>
-    
+
+    <div class="header">
+      <h1 class="header--title">Women's tops</h1>
+      <select class="header--selectMenu"data-bind="options: filters, value: filter"></select>
+    </div>
+
+
     <ul data-bind="foreach: filteredItems">
       <li>
         <h1 data-bind="text: productName"></h1>

@@ -1,1 +1,1 @@
-table{background-color:red}@media (max-width: 767px){table{color:blue}}
+body{width:80%;margin:auto;font-family:"Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif}body .header{background-color:#dff1f4;position:relative}body .header--title{display:inline-block;margin-left:2rem}body .header--selectMenu{position:absolute;right:2rem;top:39%}
