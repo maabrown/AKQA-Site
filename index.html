@@ -5,8 +5,9 @@
     <title>Mark Brown II Submission</title>
   </head>
   <body>
-
-    <ul data-bind="foreach: products">
+    <select data-bind="options: filters, value: filter"></select>
+    
+    <ul data-bind="foreach: filteredItems">
       <li>
         <h1 data-bind="text: productName"></h1>
         <h1 data-bind="text: price"></h1>
