@@ -11,24 +11,24 @@
   <body>
 
     <div class="header">
-      <h1 class="header--title">Women's tops</h1>
-      <select class="header--selectMenu"data-bind="options: filters, value: filter"></select>
+      <h1 class="header__title">Women's tops</h1>
+      <select class="header__selectMenu"data-bind="options: filters, value: filter"></select>
     </div>
 
     <div data-bind="foreach: filteredItems" class="productPanel">
-      <div class="productPanel--productItem">
-        <img data-bind="attr: { src: productImage, alt: productName}" class="productPanel--productItem--image">
-        <div data-bind="style: { display: isExclusive ? 'block' : 'none'}" class="productPanel--productItem--button productPanel--productItem--button__exclusive">
-          <p class="productPanel--productItem--button__exclusive--text">Exclusive</p>
+      <div class="productPanel__productItem">
+        <img data-bind="attr: { src: productImage, alt: productName}" class="productPanel__productItem__image">
+        <div data-bind="style: { display: isExclusive ? 'block' : 'none'}" class="productPanel__productItem__button productPanel--productItem__button--exclusive">
+          <p class="productPanel__productItem__button--exclusive__text">Exclusive</p>
         </div>
-        <div data-bind="style: { display: onSale ? 'block' : 'none'}" class="productPanel--productItem--button productPanel--productItem--button__sale">
-          <p class="productPanel--productItem--button__sale--text">Sale</p>
+        <div data-bind="style: { display: onSale ? 'block' : 'none'}" class="productPanel__productItem__button productPanel__productItem__button--sale">
+          <p class="productPanel__productItem__button--sale__text">Sale</p>
         </div>
-        <div data-bind="style: { display: onSale || isExclusive ? 'none' : 'block'}" class="productPanel--productItem--button productPanel--productItem--button__placeholder">
+        <div data-bind="style: { display: onSale || isExclusive ? 'none' : 'block'}" class="productPanel__productItem__button productPanel__productItem__button--placeholder">
 
         </div>
-        <h3 data-bind="text: productName" class="productPanel--productItem--productName"></h3>
-        <h3 data-bind="text: price" class="productPanel--productItem--productPrice"></h3>
+        <h3 data-bind="text: productName" class="productPanel__productItem__productName"></h3>
+        <h3 data-bind="text: price" class="productPanel__productItem__productPrice"></h3>
       </div>
     </div>
 
